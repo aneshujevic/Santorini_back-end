@@ -1,0 +1,3 @@
+[submodule "santorini/santorini_models"]
+	path = santorini/santorini_models
+	url = https://github.com/owlhoo/Santorini_AI.git
