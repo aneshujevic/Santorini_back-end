@@ -36,7 +36,7 @@ def deserialize_valid_moves_request(data_json):
 		decoded_info["firstHE"], decoded_info["secondHE"],
 		decoded_info["firstJU"], decoded_info["secondJU"]
 	]
-	# TODO: proveriti ID-eve od buildera zbog minimaxa
+
 	# first two builders are AI
 	# second two builders are HU
 	for i in range(4):
