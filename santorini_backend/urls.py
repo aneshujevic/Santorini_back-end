@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('getAvailableMoves/', views.available_moves),
     path('getAvailableBuilds/', views.available_builds),
-    path('minimax/', views.minimax),
-    path('alphaBeta/', views.minimax_alpha_beta),
-    path('alphaBetaCustom/', views.minimax_alpha_beta_custom),
+    path('minimax/', views.minimax_result),
+    path('alphaBeta/', views.minimax_alpha_beta_result),
+    path('alphaBetaCustom/', views.minimax_alpha_beta_custom_result),
 ]
