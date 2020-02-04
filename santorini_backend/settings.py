@@ -57,7 +57,7 @@ ROOT_URLCONF = 'santorini_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'santorini/templates/santorini')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,6 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'santorini/templates/santorini'),
+)
+
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
