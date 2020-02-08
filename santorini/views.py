@@ -1,7 +1,7 @@
 import math
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from santorini.santorini_models.board import Board
 from santorini.santorini_models.minimax import minimax, alpha_beta_project, alpha_beta_custom
@@ -13,8 +13,21 @@ def home_view(request):
     return render(request, 'santorini/index.html', {})
 
 
+def index_view(request):
+    return redirect(home_view)
+
+
 def huai_view(request):
     return render(request, 'santorini/hu_vs_ai.html', {})
+
+
+def huhu_view(request):
+    return render(request, 'santorini/hu_vs_hu.html', {})
+
+
+def aiai_view(request):
+    return render(request, 'santorini/ai_vs_ai.html', {})
+
 
 @csrf_exempt
 def available_moves(request):

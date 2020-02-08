@@ -18,8 +18,11 @@ from django.urls import path
 from santorini import views
 
 urlpatterns = [
+    path('', views.index_view),
     path('home/', views.home_view),
     path('humanai/', views.huai_view),
+    path('humanhuman/', views.huhu_view),
+    path('aiai/', views.aiai_view),
     path('getAvailableMoves/', views.available_moves),
     path('getAvailableBuilds/', views.available_builds),
     path('minimax/', views.minimax_result),
