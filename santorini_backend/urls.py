@@ -18,7 +18,6 @@ from django.urls import path
 from santorini import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('home/', views.home_view),
     path('humanai/', views.huai_view),
     path('getAvailableMoves/', views.available_moves),
