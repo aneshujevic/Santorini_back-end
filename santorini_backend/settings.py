@@ -25,8 +25,17 @@ SECRET_KEY = '_1#6*pr*_983ri6j!vx23q5*n(164sa^9xff@=2)336^+3d$w!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+ASGI_APPLICATION = "santorini_backend.routing.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Application definition
 
@@ -39,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'santorini',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -71,17 +81,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'santorini_backend.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation

@@ -17,6 +17,10 @@ def index_view(request):
     return redirect(home_view)
 
 
+def huhu_channel_view(request):
+    return
+
+
 def huai_view(request):
     return render(request, 'santorini/hu_vs_ai.html', {})
 
@@ -37,6 +41,7 @@ def available_moves(request):
     list_of_valid_moves = {"moves": valid_moving_moves}
     return HttpResponse(serialize_valid_moves(list_of_valid_moves))
 
+
 @csrf_exempt
 def available_builds(request):
     start_position, board, _, _ = deserialize_moves_request(request.body)
@@ -45,6 +50,7 @@ def available_builds(request):
     list_of_valid_builds = {"moves": valid_building_moves}
     return HttpResponse(serialize_valid_moves(list_of_valid_builds))
 
+
 @csrf_exempt
 def minimax_result(request):
     start_position, board, depth, maximizer = deserialize_moves_request(request.body)
@@ -52,14 +58,17 @@ def minimax_result(request):
     builder_number, move, build, _ = minimax(board, maximizer, depth, None, None, None)
     return HttpResponse(serialize_ai_move(builder_number, move, build))
 
+
 @csrf_exempt
 def minimax_alpha_beta_result(request):
     start_position, board, depth, maximizer = deserialize_moves_request(request.body)
     builder_number, move, build, _ = alpha_beta_project(board, maximizer, depth, None, None, None, -math.inf, math.inf)
     return HttpResponse(serialize_ai_move(builder_number, move, build))
 
+
 @csrf_exempt
 def minimax_alpha_beta_custom_result(request):
     start_position, board, depth, maximizer = deserialize_moves_request(request.body)
-    builder_number, move, build, heur = alpha_beta_custom(board, maximizer, depth, None, None, None, -math.inf, math.inf)
+    builder_number, move, build, heur = alpha_beta_custom(board, maximizer, depth, None, None, None, -math.inf,
+                                                          math.inf)
     return HttpResponse(serialize_ai_move(builder_number, move, build))

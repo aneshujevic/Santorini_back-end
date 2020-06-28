@@ -20,6 +20,7 @@ from santorini import views
 urlpatterns = [
     path('', views.index_view),
     path('home/', views.home_view),
+    path('huhuchannel/', views.huhu_channel_view),
     path('humanai/', views.huai_view),
     path('humanhuman/', views.huhu_view),
     path('aiai/', views.aiai_view),
